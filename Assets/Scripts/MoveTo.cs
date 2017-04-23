@@ -13,7 +13,7 @@ public class MoveTo : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         agent = GetComponent<NavMeshAgent>();
-        goal.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        goal = GameObject.FindGameObjectWithTag("Player").transform;
         destination = goal.position;
         agent.SetDestination(destination);
         agent.speed = stats.speed;

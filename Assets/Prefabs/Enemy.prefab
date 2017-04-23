@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54227343252900372}
   - component: {fileID: 195851556866840130}
   - component: {fileID: 114670885562186336}
+  - component: {fileID: 114750252023580714}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -125,6 +126,19 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: cdc53bd26d2858d488e7da731141c319, type: 2}
   goal: {fileID: 0}
   agent: {fileID: 195851556866840130}
+--- !u!114 &114750252023580714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978719024797524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3859bcd400969c64abdd94ba03b32a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  currHealth: 0
 --- !u!195 &195851556866840130
 NavMeshAgent:
   m_ObjectHideFlags: 1
