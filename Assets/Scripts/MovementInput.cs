@@ -1,0 +1,93 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MovementInput : MonoBehaviour {
+
+    public string horizAxis, vertAxis, fire1, fire2, fire3, fire4;
+    public float speed;
+    public float maxSpeed;
+    public float jumpForce;
+    private Rigidbody rb;
+    private bool grounded = false;
+    private int vertMov, horizMov;
+    public Transform sword;
+    private Transform swordTrans;
+    // Use this for initialization
+    void Start () {
+        rb = GetComponent<Rigidbody>();
+        vertMov = -1;
+        horizMov = -1;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        readKeys();
+	}
+
+    void readKeys()
+    {
+        float vertInput = Input.GetAxis(vertAxis);
+        float horizInput = Input.GetAxis(horizAxis);
+
+        trackMove(vertInput, horizInput);
+
+        rb.AddForce(horizInput * speed, 0, vertInput * speed);
+        Vector3 noVertVel = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        Vector3 clampedVel = Vector3.ClampMagnitude(noVertVel, maxSpeed);
+        rb.velocity = new Vector3(clampedVel.x, rb.velocity.y, clampedVel.z);
+        if (Input.GetButtonDown(fire1) && grounded)
+        {
+            Debug.Log("Jump");
+            rb.AddForce(0, jumpForce, 0);
+            grounded = false;
+        }
+        if (Input.GetButtonDown(fire2))
+        {
+            attack(horizMov, vertMov);
+        }
+    }
+
+
+    private void trackMove(float vertInput, float horizInput)
+    {
+        if (vertInput > 0)
+        {
+            vertMov = 1;
+        }
+        else if (vertInput < 0)
+        {
+            vertMov = -1;
+        }
+        else
+        {
+            vertMov = 0;
+        }
+        if (horizInput > 0)
+        {
+            horizMov = 1;
+        }
+        else if (horizInput < 0)
+        {
+            horizMov = -1;
+        }
+        else
+        {
+            horizMov = 0;
+        }
+    }
+
+    private void attack(int horizMov, int vertMov)
+    {
+        Debug.Log("Slash");
+        swordTrans = Instantiate(sword, this.transform.position + 
+                        new Vector3(horizMov, 0, vertMov), Quaternion.identity);
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        grounded = true;
+    }
+
+}
