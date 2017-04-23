@@ -90,6 +90,7 @@ public class MovementInput : MonoBehaviour {
     {
         if (swordTrans == null) { 
         Debug.Log("Slash");
+        transform.Rotate(Vector3.up, -15f);
         swordTrans = Instantiate(sword, this.transform.position + transform.forward *swordOffset, Quaternion.identity);
             swordTrans.parent = this.transform;
             swordTrans.transform.rotation = this.transform.rotation;
