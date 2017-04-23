@@ -13,9 +13,10 @@ public class MovementInput : MonoBehaviour {
     private int vertMov, horizMov;
     public Transform sword;
     private Transform swordTrans;
-    public const float  SWORD_DISAPPEAR_TIME = 0.3f;
-    private float swordTimer = 0.0f;
+    public const float  SWORD_DISAPPEAR_TIME = 0.1f;
+    private float swordTimer;
     public float swordOffset;
+    private Quaternion prevRotation;
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
@@ -26,11 +27,19 @@ public class MovementInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         swordTimer += Time.deltaTime;
+        if (swordTimer < SWORD_DISAPPEAR_TIME)
+        {
+            transform.Rotate(Vector3.up, 90f * (Time.deltaTime / .1f));
+        }
         if(swordTimer > SWORD_DISAPPEAR_TIME && swordTrans != null)
         {
+            transform.rotation = prevRotation;
             Destroy(swordTrans.gameObject);
         }
-        readKeys();
+        if (swordTimer > SWORD_DISAPPEAR_TIME)
+        {
+            readKeys();
+        }
 	}
 
     void readKeys()
@@ -90,7 +99,8 @@ public class MovementInput : MonoBehaviour {
     {
         if (swordTrans == null) { 
         Debug.Log("Slash");
-        transform.Rotate(Vector3.up, -15f);
+            prevRotation = transform.rotation;
+        transform.Rotate(Vector3.up, -45f);
         swordTrans = Instantiate(sword, this.transform.position + transform.forward *swordOffset, Quaternion.identity);
             swordTrans.parent = this.transform;
             swordTrans.transform.rotation = this.transform.rotation;
