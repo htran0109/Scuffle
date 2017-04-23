@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour {
 
+    public EnemyStats stats;
     public Transform goal;
     Vector3 destination;
     public NavMeshAgent agent;
@@ -12,8 +13,10 @@ public class MoveTo : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         agent = GetComponent<NavMeshAgent>();
+        goal.position = GameObject.FindGameObjectWithTag("Player").transform.position;
         destination = goal.position;
         agent.SetDestination(destination);
+        agent.speed = stats.speed;
     }
 	
 	// Update is called once per frame
