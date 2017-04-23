@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public void Damage(int dmg, Vector3 knockback)
     {
-
+        currHealth -= dmg;
+        this.gameObject.GetComponent<Rigidbody>().AddForce(130 * (knockback + new Vector3(0, 1, 0)));
     }
 }

@@ -12,7 +12,7 @@ public class Sword : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        knockback = transform.forward;
 	}
 
     private void OnCollisionEnter(Collision collision)
