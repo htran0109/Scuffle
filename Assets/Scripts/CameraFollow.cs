@@ -31,7 +31,7 @@ public class CameraFollow : MonoBehaviour {
     public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
     {
         // How many units should we keep from the players
-        float zoomFactor = 1.5f;
+        float zoomFactor = 2.0f;
         float followTimeDelta = 0.15f;
 
         // Midpoint we're after
