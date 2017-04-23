@@ -13,7 +13,7 @@ public class MoveTo : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         agent = GetComponent<NavMeshAgent>();
-        goal.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        goal = GameObject.FindGameObjectWithTag("Player").transform;
         destination = goal.position;
         agent.SetDestination(destination);
         agent.speed = stats.speed;
@@ -21,7 +21,7 @@ public class MoveTo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Vector3.Distance(destination, goal.position) > 1.0f)
+        if (agent.enabled == true && Vector3.Distance(destination, goal.position) > 1.0f)
         {
             destination = goal.position;
             Debug.Log(destination);
@@ -29,5 +29,15 @@ public class MoveTo : MonoBehaviour {
             agent.SetDestination(destination);
             
         }
+    }
+
+    public void StopMoving()
+    {
+        agent.enabled = false;
+    }
+
+    public void StartMoving()
+    {
+        agent.enabled = true;
     }
 }
