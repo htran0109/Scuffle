@@ -83,15 +83,16 @@ public class MovementInput : MonoBehaviour {
         {
             horizMov = 0;
         }
-        this.transform.LookAt(new Vector3(rb.position.x, 0, rb.position.z));
+        this.transform.LookAt(new Vector3(rb.position.x + horizMov, rb.position.y, rb.position.z +vertMov));
     }
 
     private void attack(int horizMov, int vertMov)
     {
         if (swordTrans == null) { 
         Debug.Log("Slash");
-        swordTrans = Instantiate(sword, this.transform.position, Quaternion.identity);
+        swordTrans = Instantiate(sword, this.transform.position + transform.forward *swordOffset, Quaternion.identity);
             swordTrans.parent = this.transform;
+            swordTrans.transform.rotation = this.transform.rotation;
         swordTimer = 0f;
             }
         
