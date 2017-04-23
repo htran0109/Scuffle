@@ -7,13 +7,13 @@ public class MoveTo : MonoBehaviour {
 
     public Transform goal;
     Vector3 destination;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     // Use this for initialization
-    void Start () {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+    void Awake () {
+        agent = GetComponent<NavMeshAgent>();
         destination = goal.position;
-        agent.destination = destination;
+        agent.SetDestination(destination);
     }
 	
 	// Update is called once per frame
@@ -21,7 +21,9 @@ public class MoveTo : MonoBehaviour {
         if (Vector3.Distance(destination, goal.position) > 1.0f)
         {
             destination = goal.position;
-            agent.destination = destination;
+            Debug.Log(destination);
+            Debug.Log(agent);
+            agent.SetDestination(destination);
         }
     }
 }

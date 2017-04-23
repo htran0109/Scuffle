@@ -749,6 +749,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e15f839f074ce764e94fff43400e04c6, type: 2}
+    - target: {fileID: 114855497653803380, guid: 260255121dae2074087c0b415fcc6256,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 260255121dae2074087c0b415fcc6256, type: 2}
   m_IsPrefabParent: 0
@@ -868,7 +873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4ed00af2718a54a97abcea816f1181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 842963388}
+  goal: {fileID: 1934889824}
+  agent: {fileID: 0}
 --- !u!195 &878790272
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1612,6 +1618,11 @@ Prefab:
     - target: {fileID: 1938296065129904, guid: 260255121dae2074087c0b415fcc6256, type: 2}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114855497653803380, guid: 260255121dae2074087c0b415fcc6256,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 260255121dae2074087c0b415fcc6256, type: 2}
