@@ -27,6 +27,7 @@ public class MoveTo : MonoBehaviour {
             Debug.Log(destination);
             Debug.Log(agent);
             agent.SetDestination(destination);
+            
         }
     }
 }
