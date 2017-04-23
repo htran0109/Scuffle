@@ -96,7 +96,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!114 &114855497653803380
 MonoBehaviour:
@@ -112,12 +112,14 @@ MonoBehaviour:
   horizAxis: HorizontalPlayer1
   vertAxis: VerticalPlayer1
   fire1: Fire1Player1
-  fire2: 
+  fire2: Fire2Player1
   fire3: 
   fire4: 
   speed: 10
   maxSpeed: 2
   jumpForce: 300
+  sword: {fileID: 4874303311706676, guid: bbd2c2fd3b387034db77bfb8eb8b29e6, type: 2}
+  swordOffset: 0.4
 --- !u!135 &135787455960081390
 SphereCollider:
   m_ObjectHideFlags: 1
