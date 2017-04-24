@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour {
 
 
     public EnemyStats stats;
     public int currHealth;
+    public float hitStun;
 
     // Use this for initialization
     void Start() {
@@ -15,11 +17,15 @@ public class EnemyHealth : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (gameObject.GetComponent<MoveTo>().agent.enabled == false &&
-            gameObject.GetComponent<Rigidbody>().velocity.magnitude <= 1) {
-            gameObject.GetComponent<MoveTo>().agent.enabled = true;
+        if (gameObject.GetComponent<NavMeshAgent>().enabled == false &&
+            hitStun > 2f) {
+            //gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+            gameObject.GetComponent<NavMeshAgent>().enabled = true;
 
         }
+        hitStun += Time.deltaTime;
     }
 
     public void Damage(int dmg, Vector3 knockback)
@@ -30,8 +36,12 @@ public class EnemyHealth : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        gameObject.GetComponent<>().agent.enabled = false;
-        this.gameObject.GetComponent<Rigidbody>().AddForce(4000 * (knockback + new Vector3(0, 1, 0)));
-       
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        this.gameObject.GetComponent<Rigidbody>().AddForce(150 * (knockback + new Vector3(0, 2, 0)));
+        hitStun = 0;
+        
+
     }
 }
