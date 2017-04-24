@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour {
     {
 
         currHealth -= dmg;
-        if (currHealth < 0)
+        if (currHealth <= 0)
         {
             Destroy(gameObject);
         }
