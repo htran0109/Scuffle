@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 23607631427485614}
   - component: {fileID: 54713552254922848}
   - component: {fileID: 195503397241604482}
-  - component: {fileID: 114315763321006490}
   - component: {fileID: 114850093804895952}
   - component: {fileID: 114848032140040326}
+  - component: {fileID: 114752713523749180}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673502227334774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.29, y: 1.31, z: -0.31}
+  m_LocalPosition: {x: -12.48, y: 1.31, z: -7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114315763321006490
+--- !u!114 &114752713523749180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,12 +121,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1673502227334774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e4ed00af2718a54a97abcea816f1181, type: 3}
+  m_Script: {fileID: 11500000, guid: 5307a64cfb17bc349b14dee83b9a0da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: cdc53bd26d2858d488e7da731141c319, type: 2}
+  stats: {fileID: 11400000, guid: 751342b7bc12f7b4fb9ee85df6204df5, type: 2}
   goal: {fileID: 0}
   agent: {fileID: 195503397241604482}
+  range: 15
 --- !u!114 &114848032140040326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,8 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87326a7498b5e1b47b405140fba489b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLocation: {fileID: 0}
   target: {fileID: 0}
   laser: {fileID: 1754914143565512, guid: 9869a8faee201054a8845ec80a703a92, type: 2}
+  coolDown: 6
+  timer: 6
 --- !u!114 &114850093804895952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: cdc53bd26d2858d488e7da731141c319, type: 2}
   currHealth: 0
+  hitStun: 0
 --- !u!195 &195503397241604482
 NavMeshAgent:
   m_ObjectHideFlags: 1
