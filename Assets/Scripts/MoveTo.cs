@@ -9,6 +9,7 @@ public class MoveTo : MonoBehaviour {
     public Transform goal;
     Vector3 destination;
     public NavMeshAgent agent;
+    public int damage;
 
     // Use this for initialization
     void Awake () {
@@ -39,5 +40,16 @@ public class MoveTo : MonoBehaviour {
     public void StartMoving()
     {
         agent.enabled = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            var heading = goal.position - transform.position;
+            var distance = heading.magnitude;
+            var direction = heading / distance;
+            collision.gameObject.GetComponent<PlayerHealth>().Damage(damage, direction);
+        }
     }
 }
