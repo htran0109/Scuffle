@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour {
     void Update() {
         if (gameObject.GetComponent<NavMeshAgent>().enabled == false &&
             hitStun > 2f) {
-            //gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
             //gameObject.GetComponent<Rigidbody>().isKinematic = false;
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
             gameObject.GetComponent<NavMeshAgent>().enabled = true;

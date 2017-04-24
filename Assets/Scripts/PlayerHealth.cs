@@ -24,5 +24,8 @@ public class PlayerHealth : MonoBehaviour {
         {
             Debug.Log("DED");
         }
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        this.gameObject.GetComponent<Rigidbody>().AddForce(600 * (knockback + new Vector3(0, .5f, 0)));
+
     }
 }
