@@ -15,10 +15,11 @@ public class Sword : MonoBehaviour {
         knockback = transform.forward;
 	}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("Enemy hit");
             collision.gameObject.GetComponent<EnemyHealth>().Damage(damage, knockback);
         }
     }
