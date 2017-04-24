@@ -19,5 +19,10 @@ public class PlayerHealth : MonoBehaviour {
     public void Damage(int dmg, Vector3 knockback)
     {
         currHealth -= dmg;
+
+        if(currHealth < 0)
+        {
+            Debug.Log("DED");
+        }
     }
 }

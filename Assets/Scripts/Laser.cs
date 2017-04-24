@@ -9,23 +9,20 @@ public class Laser : MonoBehaviour {
     float t;
 	// Use this for initialization
 	void Start () {
-        laserMat = GetComponentInChildren<MeshRenderer>().material;
-        StartCoroutine("Shoot");
-	}
+        
+
+        Destroy(gameObject, 1.0f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    IEnumerator Shoot()
-    {
-        for(int i = 0; i < 10; i++)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100.0f))
         {
-            Color newColor = laserMat.color;
-            newColor.a = (0.0f / (float)i) * 128.0f;
-            laserMat.color = newColor;
-            yield return new WaitForSeconds(startUpTime / 10);
+            if (hit.collider.gameObject.tag == "Player")
+            {
+                hit.collider.gameObject.GetComponent<PlayerHealth>().Damage(9999, new Vector3(0, 0, 0));
+            }
         }
     }
 }
