@@ -127,7 +127,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 751342b7bc12f7b4fb9ee85df6204df5, type: 2}
   goal: {fileID: 0}
   agent: {fileID: 195503397241604482}
-  range: 15
+  range: 9
 --- !u!114 &114848032140040326
 MonoBehaviour:
   m_ObjectHideFlags: 1
