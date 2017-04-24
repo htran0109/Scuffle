@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87326a7498b5e1b47b405140fba489b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  laser: {fileID: 1754914143565512, guid: 9869a8faee201054a8845ec80a703a92, type: 2}
 --- !u!114 &114850093804895952
 MonoBehaviour:
   m_ObjectHideFlags: 1
