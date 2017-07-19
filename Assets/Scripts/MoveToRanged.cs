@@ -43,4 +43,14 @@ public class MoveToRanged : MonoBehaviour
     {
         agent.enabled = true;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" &&
+            collision.gameObject.GetComponent<MovementInput>().isCharging())
+        {
+            this.GetComponent<EnemyHealth>().Damage(
+                collision.gameObject.GetComponent<MovementInput>().damage,
+                collision.gameObject.GetComponent<MovementInput>().knockback);
+        }
+    }
 }

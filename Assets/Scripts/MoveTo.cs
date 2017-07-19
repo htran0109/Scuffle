@@ -44,12 +44,20 @@ public class MoveTo : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && 
+            !collision.gameObject.GetComponent<MovementInput>().isCharging())
         {
             var heading = goal.position - transform.position;
             var distance = heading.magnitude;
             var direction = heading / distance;
             collision.gameObject.GetComponent<PlayerHealth>().Damage(damage, direction);
+        }
+        else if(collision.gameObject.tag == "Player" &&
+            collision.gameObject.GetComponent<MovementInput>().isCharging())
+        {
+            this.GetComponent<EnemyHealth>().Damage(
+                collision.gameObject.GetComponent<MovementInput>().damage,
+                collision.gameObject.GetComponent<MovementInput>().knockback);
         }
     }
 }
