@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938296065129904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46664393, y: -4.78, z: -2.454626}
+  m_LocalPosition: {x: 0.46664393, y: 0.7, z: -2.454626}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,6 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currHealth: 100
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColor: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!114 &114855497653803380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,17 +126,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4675f4020fdc346a975f3461c62742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  knockback: {x: 0, y: 0, z: 0}
   horizAxis: HorizontalPlayer1
   vertAxis: VerticalPlayer1
   fire1: Fire1Player1
   fire2: Fire2Player1
-  fire3: 
+  fire3: Fire3Player1
   fire4: 
-  speed: 10
-  maxSpeed: 2
+  speed: 100
+  maxSpeed: 5
   jumpForce: 300
-  sword: {fileID: 4295859039384054, guid: 1d898d982ecfa8047bb0848bfac24569, type: 2}
-  swordOffset: 0.4
+  chargeForce: 3000
+  attack: {fileID: 0}
+  attackOffset: 0
 --- !u!135 &135787455960081390
 SphereCollider:
   m_ObjectHideFlags: 1
