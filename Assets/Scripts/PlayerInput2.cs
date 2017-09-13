@@ -25,12 +25,17 @@ public class PlayerInput2 : MovementInput {
         if (attackTrans == null)
         {
             Debug.Log("Bow1");
-            prevRotation = transform.rotation;
-            transform.Rotate(Vector3.up, -45f);
             attackTrans = Instantiate(attack, this.transform.position + transform.forward * attackOffset, Quaternion.identity);
-            attackTrans.parent = this.transform;
             attackTrans.transform.rotation = this.transform.rotation;
+            prevRotation = this.transform.rotation;
+            attackTrans.transform.Rotate(90, 0, 0);
             attackTimer = 0f;
+            //prevRotation = transform.rotation;
+            //transform.Rotate(Vector3.up, -45f);
+            //attackTrans = Instantiate(attack, this.transform.position + transform.forward * attackOffset, Quaternion.identity);
+            //attackTrans.parent = this.transform;
+            //attackTrans.transform.rotation = this.transform.rotation;
+            //attackTimer = 0f;
         }
 
     }

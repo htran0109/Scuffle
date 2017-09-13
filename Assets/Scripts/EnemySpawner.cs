@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (!spawned)
+        if (!spawned && collision.gameObject.tag != "Weapon")
         {
             for (int i = 0; i < spawnLocations.Length; i++)
             {
