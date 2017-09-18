@@ -44,15 +44,24 @@ public class PlayerInput2 : MovementInput {
     protected void Attack2(int horizMov, int vertMov, int horizDir, int vertDir)
     {
         Debug.Log("Bow2");
-        if (horizMov == 0 && vertMov == 0)
-        {
-            rb.AddForce(horizDir * chargeForce, jumpForce / 3, vertDir * chargeForce);
-        }
-        else
-        {
-            rb.AddForce(horizMov * chargeForce, jumpForce / 3, vertMov * chargeForce);
-        }
+        attackTrans = Instantiate(attack, this.transform.position + transform.forward * attackOffset, Quaternion.identity);
+        attackTrans.transform.rotation = this.transform.rotation;
+        prevRotation = this.transform.rotation;
+        attackTrans.transform.Rotate(90, 0, 0);
+
+        attackTrans = Instantiate(attack, this.transform.position + transform.forward * attackOffset, Quaternion.identity);
+        attackTrans.transform.rotation = this.transform.rotation;
+        prevRotation = this.transform.rotation;
+        attackTrans.transform.Rotate(90, 30, 0);
+
+        attackTrans = Instantiate(attack, this.transform.position + transform.forward * attackOffset, Quaternion.identity);
+        attackTrans.transform.rotation = this.transform.rotation;
+        prevRotation = this.transform.rotation;
+        attackTrans.transform.Rotate(90, -30, 0);
+
+        rb.AddForce(-chargeForce * this.transform.forward);
         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
         chargeTimer = 0;
     }
 }
