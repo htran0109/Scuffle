@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114458384321440874}
   - component: {fileID: 135791121156005372}
   - component: {fileID: 114934651852103084}
+  - component: {fileID: 114837421090434032}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426486585633326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -71.9, y: 0.7, z: 74}
+  m_LocalPosition: {x: -83.9, y: 0.7, z: 84.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,6 +120,18 @@ MonoBehaviour:
   damageBox: {fileID: 0}
   flashSpeed: 5
   flashColor: {r: 1, g: 0, b: 0, a: 0.1}
+--- !u!114 &114837421090434032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1426486585633326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c32792f96c41649b8163542478450e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!114 &114934651852103084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,9 +154,9 @@ MonoBehaviour:
   speed: 100
   maxSpeed: 5
   jumpForce: 300
-  chargeForce: 3000
-  attack: {fileID: 400000, guid: 2120cb9e5c1a67c4ea448d97220d1653, type: 3}
-  attackOffset: 0
+  chargeForce: 2000
+  attack: {fileID: 4883524242550968, guid: ba536c84db5dd46439cef32a7928cc11, type: 2}
+  attackOffset: 2
 --- !u!135 &135575030248753680
 SphereCollider:
   m_ObjectHideFlags: 1
