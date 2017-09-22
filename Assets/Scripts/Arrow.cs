@@ -7,11 +7,13 @@ public class Arrow : MonoBehaviour {
     public float arrowSpeed;
     public int damage;
     public Vector3 knockback;
+    private int timer = 0;
 
     Vector3 unitDir;
     Rigidbody rb;
 	// Use this for initialization
 	void Start () {
+        timer = 0;
         rb = GetComponent<Rigidbody>();
         unitDir = this.transform.up;
     }
@@ -21,6 +23,11 @@ public class Arrow : MonoBehaviour {
         
         rb.velocity = unitDir * arrowSpeed;
         knockback = transform.forward;
+        timer++;
+        if(timer > 200)
+        {
+            Destroy(this);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)

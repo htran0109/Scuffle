@@ -25,5 +25,6 @@ public class PlayerWallCheck : MonoBehaviour {
                 objectHit.gameObject.GetComponent<Wall>().makeTransparentCounter = 0;
             }
         }
+
     }
 }
