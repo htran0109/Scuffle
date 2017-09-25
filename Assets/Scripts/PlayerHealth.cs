@@ -12,8 +12,7 @@ public class PlayerHealth : MonoBehaviour {
     public Image damageImage;
     public RectTransform damageBar;
     public RectTransform damageBox;
-    public float flashSpeed = 5f;
-    public Color flashColor = new Color(1f, 0f, 0f, .1f);
+
 
     Animator anim;
     bool isDead;
@@ -27,14 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*if (damaged)
-        {
-            damageImage.color = flashColor;
-        }
-        else
-        {
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-        }*/
+
         Color barColor = Color.Lerp(Color.red, Color.green, currHealth / (float)maxHealth);
         barColor.a = 1;
         damageBar.sizeDelta = new Vector2((currHealth) / (float)maxHealth * damageBox.rect.width, 10);
