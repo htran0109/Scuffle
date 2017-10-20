@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        Color barColor = Color.Lerp(Color.red, Color.green, currHealth / (float)maxHealth);
+        Color barColor = Color.Lerp(Color.red, Color.yellow, currHealth / (float)maxHealth);
         barColor.a = 1;
         damageBar.sizeDelta = new Vector2((currHealth) / (float)maxHealth * damageBox.rect.width, 10);
         damageBar.position = new Vector3(initHealthPos - (1-(currHealth) / (float)maxHealth) * (damageBox.rect.width/2),
